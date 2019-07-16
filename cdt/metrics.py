@@ -46,9 +46,9 @@ def retrieve_adjacency_matrix(graph, order_nodes=None, weight=False):
         if order_nodes is None:
             order_nodes = graph.nodes()
         if not weight:
-            return np.array(nx.adjacency_matrix(graph, order_nodes, weight=None).todense())
+            return 1*(np.array(nx.adjacency_matrix(graph, order_nodes, weight=None).todense())!=0)
         else:
-            return np.array(nx.adjacency_matrix(graph, order_nodes).todense())
+            return 1*(np.array(nx.adjacency_matrix(graph, order_nodes).todense())!=0)
     else:
         raise TypeError("Only networkx.DiGraph and np.ndarray (adjacency matrixes) are supported.")
     
